@@ -66,10 +66,10 @@ function statusChangeCallback(response) {
 
  function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('/{user-id}', function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        console.log(response.birthday);
+    FB.api("/{user-id}", function(response) {
+      if (response && !response.error) {
+        console.log(response.name);
+      }
     });
   }
 </script>
