@@ -69,7 +69,7 @@ function statusChangeCallback(response) {
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
-        console.log(response.birthday);
+        'Thanks for logging in, ' + response.name + '!';
     });
   }
 </script>
