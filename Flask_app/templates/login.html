@@ -5,7 +5,32 @@
     <title>Title</title>
 </head>
 <body>
-    <h1 id="fb-welcome"></h1>
 
+<div id="fb-root"></div>
+<script>
+//just a comment
+
+    window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1841965282684175',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+
+    // ADD ADDITIONAL FACEBOOK CODE HERE
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+</script>
 </body>
+
+<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
 </html>
