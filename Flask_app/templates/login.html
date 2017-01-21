@@ -155,11 +155,7 @@ function statusChangeCallback(response) {
         console.log(response.education);
     });
   }
-FB.login(function(){
-  // Note: The call will only work if you accept the permission request
-  FB.api('/me/feed', 'post', {message: 'Hello, world!'});
-}, {scope: 'publish_actions,user_education_history'
-    });
+
 
 
 </script>
@@ -167,9 +163,8 @@ FB.login(function(){
 
 <div class="login">
 
-    <button onclick="FB.login()">loginMan</button>
 	<h1 style="margin-bottom: 10%">StudyBuDDy</h1>
-    <div class="fb-login-button fb-button" data-max-rows="1" scope="public_profile,email,user_friends" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
+    <div class="fb-login-button fb-button" data-max-rows="1" scope="public_profile,publish_actions,user_education_history" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
 
 </div>
 
