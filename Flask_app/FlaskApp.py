@@ -21,16 +21,16 @@ def welcome():
         #data = request.data
         #print(data)
         #userData = json.dumps(data)
-        for key, value in dict.items(userData["uid"]):
-            UserId = str(value)
-        for key, value in dict.items(userData["School"]):
-            School = str(value)
-        for key, value in dict.items(userData["Program"]):
-            Program = str(value)
-        for key, value in dict.items(userData["Picture"]):
-            Picture = str(value)
-        for key, value in dict.items(userData["Name"]):
-            Name = str(value)
+        #for key, value in dict.items(userData["uid"]):
+         #   UserId = str(value)
+        #for key, value in dict.items(userData["School"]):
+         #   School = str(value)
+        #for key, value in dict.items(userData["Program"]):
+         #   Program = str(value)
+        #for key, value in dict.items(userData["Picture"]):
+         #   Picture = str(value)
+        #for key, value in dict.items(userData["Name"]):
+         #   Name = str(value)
         return render_template("debug.html", debugvar = "something")
         #login(UserId, School, Program, Picture, Name)
     elif request.method == 'GET':
