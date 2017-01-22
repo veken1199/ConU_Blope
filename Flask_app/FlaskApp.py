@@ -19,6 +19,7 @@ Picture = " "
 def welcome():
     if request.method == 'POST':
         data = request.data
+        print(data)
         userData = json.dumps(data)
         for key, value in dict.items(userData["uid"]):
             UserId = str(value)
