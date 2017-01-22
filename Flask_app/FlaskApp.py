@@ -1,5 +1,5 @@
 from flask import Flask,render_template, request
-#import pypyodbc
+import pypyodbc
 app = Flask(__name__)
 
 
@@ -7,7 +7,7 @@ app = Flask(__name__)
 def login():
     if request.method == "POST":
 
-        return Flask.redirect(Flask.url_for('swipe'))
+        return redirect(url_for('swipe'))
 
     else:
 
