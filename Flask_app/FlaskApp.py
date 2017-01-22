@@ -1,4 +1,4 @@
-from flask import Flask,render_template, request
+from flask import Flask,render_template, request,url_for, redirect
 import pypyodbc
 app = Flask(__name__)
 
@@ -6,11 +6,9 @@ app = Flask(__name__)
 @app.route("/", methods = ["GET", "POST"])
 def login():
     if request.method == "POST":
-
-        return render_template('swipe.html')
+        return redirect(url_for('swipe'))
 
     else:
-
         return render_template('login.html')
 
 
