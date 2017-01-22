@@ -25,6 +25,7 @@ def welcome():
         Name = request.form['username']
 
         login(UserId, School, Program, Picture, Name)
+        return render_template('swipe.html')
     else:
         return render_template('login.html')
 
