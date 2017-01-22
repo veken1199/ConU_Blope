@@ -176,14 +176,11 @@ function statusChangeCallback(response) {
    },
    dataType: 'json',
    success: function(data) {
-      window.location = data;
+      window.location = "https://claudds.pythonanywhere.com/swipe";
    },
    type: 'POST'
 });
   }
-
-
-
     function mod() {
         $('#myModal').modal('show');
     }
