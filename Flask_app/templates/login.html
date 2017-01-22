@@ -149,10 +149,10 @@ function statusChangeCallback(response) {
 
  function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me?fields=id,name,education', function(response) {
+    FB.api('/me?fields=id,name,picture,education', function(response) {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
-        console.log(response.education);
+        console.log(response.picture);
     });
   }
 
