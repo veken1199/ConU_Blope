@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route("/", methods = ["GET", "POST"])
 def login():
     if request.method == "POST":
-        return"lk"
+        return render_template('login.html')
 
     else:
         return render_template('login.html')
