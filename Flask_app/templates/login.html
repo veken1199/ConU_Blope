@@ -132,6 +132,7 @@ function statusChangeCallback(response) {
     FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
   });
+    FB.Event.subscribe('auth.statusChange',  statusChangeCallback);
 
 
   };
@@ -185,7 +186,7 @@ function statusChangeCallback(response) {
 });
   }
 
-    FB.Event.subscribe('auth.statusChange',  statusChangeCallback);
+
 
     function mod() {
         $('#myModal').modal('show');
