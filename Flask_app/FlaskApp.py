@@ -31,7 +31,8 @@ def welcome():
             Picture = str(value)
         for key, value in dict.items(userData["Name"]):
             Name = str(value)
-        login(UserId, School, Program, Picture, Name)
+        return render_template("debug.html", debugvar = data)
+        #login(UserId, School, Program, Picture, Name)
     elif request.method == 'GET':
         return render_template('login.html')
 
