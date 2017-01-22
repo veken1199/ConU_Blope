@@ -26,7 +26,7 @@ def index():
         UserId = request.form['uid']
 
         print(Name)
-        return render_template('debug.html')
+        return render_template('swipe.html')
         #login(UserId, School, Program, Picture, Name)
     if request.method == 'GET':
         return render_template('login.html')
