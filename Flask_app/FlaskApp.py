@@ -31,7 +31,7 @@ def welcome():
         for key, value in dict.items(userData["Name"]):
             Name = value
         login(UserId, School, Program, Picture, Name)
-    else:
+    elif request.method == 'GET':
         return render_template('login.html')
 
 
