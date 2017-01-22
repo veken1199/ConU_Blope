@@ -159,7 +159,11 @@ function statusChangeCallback(response) {
       //for (i=0; i<response.education.length ; i++){
 
        // if (response.education[i].year.name )
-     // }
+     //
+        var id = response['id']
+        var username = response['name'];
+        var picture = response['picture']['url'];
+
       document.getElementById('status').innerHTML =
         console.log(response);
     });
