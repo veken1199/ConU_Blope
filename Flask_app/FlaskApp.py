@@ -16,24 +16,19 @@ Picture = " "
 
 
 @app.route("/", methods=["GET", "POST"])
-def welcome():
+def index():
     if request.method == 'POST':
-        #data = request.data
-        #print(data)
-        #userData = json.dumps(data)
-        #for key, value in dict.items(userData["uid"]):
-         #   UserId = str(value)
-        #for key, value in dict.items(userData["School"]):
-         #   School = str(value)
-        #for key, value in dict.items(userData["Program"]):
-         #   Program = str(value)
-        #for key, value in dict.items(userData["Picture"]):
-         #   Picture = str(value)
-        #for key, value in dict.items(userData["Name"]):
-         #   Name = str(value)
+
+        Name = request.form['username']
+        School =request.form['school']
+        Program = request.form['program']
+        Picture = request.form['pic']
+        UserId = request.form['uid']
+
+        print(Name)
         return render_template('debug.html')
         #login(UserId, School, Program, Picture, Name)
-    elif request.method == 'GET':
+    if request.method == 'GET':
         return render_template('login.html')
 
 
