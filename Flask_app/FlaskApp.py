@@ -1,10 +1,11 @@
+from flask import Flask, render_template, request
+from tinydb import TinyDB, Query
+import pypyodbc, json
 
-from flask import Flask,render_template,request,redirect,url_for
-import pypyodbc,json
 app = Flask(__name__)
 
-connection = pypyodbc.connect( "SERVER=tcp:blopes.database.windows.net,1433; uid=test;pwd=Concordia1;DATABASE=Blope")
-connectLogin = connection.cursor()
+db = TinyDB('db.json')
+command = Query()
 UserId = " "
 Name = " "
 GPA = 0.0
@@ -13,12 +14,13 @@ Year = 0
 Program = " "
 Picture = " "
 
-@app.route("/", methods=['GET','POST'])
+
+@app.route("/", methods=["GET", "POST"])
 def welcome():
-    if request.method=='POST':
+    if request.method == 'POST':
         data = request.data
         userData = json.loads(data)
-        for key,value in dict.items(userData["uid"]):
+        for key, value in dict.items(userData["uid"]):
             UserId = value
         for key, value in dict.items(userData["School"]):
             School = value
@@ -28,44 +30,27 @@ def welcome():
             Picture = value
         for key, value in dict.items(userData["Name"]):
             Name = value
-        login(UserId,School,Program,Picture,Name)
+        login(UserId, School, Program, Picture, Name)
     else:
         return render_template('login.html')
 
 
-
-def login(Username, School, Program, Picture, Name):
-    SQLcommand = "select UserId from dbo.users  where UserId = ?"
-    connectLogin.execute(SQLcommand,(Username,))
-    connectLogin.fetchall()
-    if not connectLogin.rowcount:
-        SQLCommand = ("INSERT INTO dbo.users "
-                      "(UserId) "
-                      "VALUES (?)")
-        Values = [Username]
-        connectLogin.execute(SQLCommand, Values)
-        connection.commit()
-
-        SQLCommand = ("INSERT INTO dbo.userInfo "
-                      "(UserId) "
-                      "VALUES (?, ? , ?, ? , ? )")
-        Values = [Username, School, Program, Picture, Name]
-        connectLogin.execute(SQLCommand, Values)
-        connection.commit()
-
-   #if user exist extract school and gpa from table
+def login(UserId, School, Program, Picture, Name):
+    if not db.search(command['UserId'] == UserId):
+        db.insert({'UserId': UserId, 'School': School, 'Program': Program, 'Picture': Picture, 'Name': Name})
+        # if user exist extract school and gpa from table
     else:
-        SQLcommand = ("UPDATE School = ? ,Program = ? FROM dbo.userInfo where UserId = ? ")
-        connectLogin.execute(SQLcommand, (School, Program, Username))
+        db.update({'School': School}, command['UserId'] == UserId)
+        db.update({'Program': Program}, command['UserId'] == UserId)
 
-    return render_template('swipe.html')
 
-@app.route("/swipe", methods=['GET','POST'])
+@app.route("/swipe", methods=['GET', 'POST'])
 def update():
-    SQLcommand = "select Picture,Name from dbo.userInfo  where School = ?"
-    connectLogin.execute(SQLcommand, (School,))
-    row = connectLogin.fetchall();
-    print(row)
+    return "hello world"
+
+
+def checkForMatch():
+    potentialMatch = db.search(command['School'] == School, command['Program'] == Program)
 
 
 if __name__ == "__main__":
