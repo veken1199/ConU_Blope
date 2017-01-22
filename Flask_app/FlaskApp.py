@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route("/", methods = ["GET", "POST"])
 def login():
     if request.method == "POST":
-        return url_for('swipe')
+        return redirect(url_for('swipe'))
 
     else:
         return render_template('login.html')
