@@ -20,8 +20,8 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   color: #fff;
   padding: 20px;
-  width: 360px;
-  height: 360px;
+  width: 630px;
+  height: 384px;
   top: 50px;
   left: 50px;
   position: absolute;
@@ -43,11 +43,12 @@
 }
 .avatar {
   background: #222;
+  border-radius: 10px;
   width: 340px;
   height: 340px;
   display: block;
   margin-top: 10px;
-  margin-left: 10px;
+  margin-left: 0px;
   background-size: 100% auto !important;
   background-position: center;
  background-repeat: no-repeat;
