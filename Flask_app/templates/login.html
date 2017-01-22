@@ -131,7 +131,9 @@ function statusChangeCallback(response) {
 
     FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
-  }); 
+
+  });
+
     FB.Event.subscribe('auth.statusChange',  statusChangeCallback);
 
 
@@ -157,6 +159,7 @@ function statusChangeCallback(response) {
 
       document.getElementById("name-mod").value = username;
     });
+
   }
 
   function postMethod(){
@@ -170,24 +173,21 @@ function statusChangeCallback(response) {
       'school':$("#school-mod").val(),
       'gpa':$('#gpa-mod').val()
    },
+    type: 'POST',
+
 
    error: function() {
+      console.log("no");
       $('#info').html('<p>An error has occurred</p>');
    },
-   dataType: 'json',
+
    success: function(data) {
-      var $title = $('<h1>').text(data.talks[0].talk_title);
-      var $description = $('<p>').text(data.talks[0].talk_description);
-      $('#info')
-         .append($title)
-         .append($description);
+        console.log("yes");
+      window.location = "swipe";
    },
-   type: 'POST'
+
 });
   }
-
-
-
     function mod() {
         $('#myModal').modal('show');
     }
