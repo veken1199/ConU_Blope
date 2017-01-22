@@ -17,16 +17,21 @@ Picture = " "
 
 @app.route("/", methods=["GET", "POST"])
 def welcome():
-    if request.method == 'POST':
-        UserId = request.form['uid']
-        School = request.form['School']
-        Program = request.form['Program']
-        Picture = request.form['pic']
-        Name = request.form['username']
-
+    if request.method == 'POST'
+        data = request.data
+        userData = json.loads(data.decode("utf-8"))
+        for key, value in dict.items(userData["uid"]):
+            UserId = str(value)
+        for key, value in dict.items(userData["School"]):
+            School = str(value)
+        for key, value in dict.items(userData["Program"]):
+            Program = str(value)
+        for key, value in dict.items(userData["Picture"]):
+            Picture = str(value)
+        for key, value in dict.items(userData["Name"]):
+            Name = str(value)
         login(UserId, School, Program, Picture, Name)
-        return render_template('swipe.html')
-    else:
+    elif request.method == 'GET':
         return render_template('login.html')
 
 
