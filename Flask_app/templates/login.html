@@ -156,17 +156,21 @@ function statusChangeCallback(response) {
 
     FB.api('/me?fields=id,name,picture,education', function(response) {
       console.log('Successful login for: ' + response.name);
+
         var id = response['id']
         var username = response['name'];
         var picture = response['picture']['data']['url'];
 
-        var data = ['user']
 
       document.getElementById('status').innerHTML =
         console.log(response);
     });
+
+    mod
   }
-    function mod(data) {
+
+
+    function mod() {
         $('#myModal').modal('show');
     }
 
