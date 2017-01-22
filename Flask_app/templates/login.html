@@ -160,11 +160,13 @@ function statusChangeCallback(response) {
         var username = response['name'];
         var picture = response['picture']['data']['url'];
 
+        var data = ['user']
+
       document.getElementById('status').innerHTML =
         console.log(response);
     });
   }
-    function mod() {
+    function mod(data) {
         $('#myModal').modal('show');
     }
 
