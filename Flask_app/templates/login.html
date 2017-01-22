@@ -170,15 +170,19 @@ function statusChangeCallback(response) {
       'school':$("#school-mod").val(),
       'gpa':$('#gpa-mod').val()
    },
+    type: 'POST',
+    dataType: 'json',
 
    error: function() {
+      console.log("no");
       $('#info').html('<p>An error has occurred</p>');
    },
-   dataType: 'json',
+
    success: function(data) {
+        console.log("yes");
       window.location = "swipe";
    },
-   type: 'POST'
+
 });
   }
     function mod() {
