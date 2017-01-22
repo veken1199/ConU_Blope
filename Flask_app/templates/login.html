@@ -149,10 +149,17 @@ function statusChangeCallback(response) {
 
  function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
+
+    //var year = "2017"
+
     FB.api('/me?fields=id,name,picture,education', function(response) {
       console.log('Successful login for: ' + response.name);
+      //for (i=0; i<response.education.length ; i++){
+
+       // if (response.education[i].year.name )
+     // }
       document.getElementById('status').innerHTML =
-        console.log(response.picture);
+        console.log(response.education);
     });
   }
 
