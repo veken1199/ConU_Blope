@@ -17,7 +17,7 @@ Picture = " "
 
 @app.route("/", methods=["GET", "POST"])
 def welcome():
-    if request.method == 'POST'
+    if request.method == 'POST':
         data = request.data
         userData = json.loads(data.decode("utf-8"))
         for key, value in dict.items(userData["uid"]):
