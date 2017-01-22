@@ -21,15 +21,15 @@ def welcome():
         data = request.data
         userData = json.loads(data)
         for key, value in dict.items(userData["uid"]):
-            UserId = value
+            UserId = str(value)
         for key, value in dict.items(userData["School"]):
-            School = value
+            School = str(value)
         for key, value in dict.items(userData["Program"]):
-            Program = value
+            Program = str(value)
         for key, value in dict.items(userData["Picture"]):
-            Picture = value
+            Picture = str(value)
         for key, value in dict.items(userData["Name"]):
-            Name = value
+            Name = str(value)
         login(UserId, School, Program, Picture, Name)
     elif request.method == 'GET':
         return render_template('login.html')
