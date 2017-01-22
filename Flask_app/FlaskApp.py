@@ -1,5 +1,5 @@
 from flask import Flask,render_template
-import pypyodbc
+#import pypyodbc
 app = Flask(__name__)
 
 
