@@ -105,7 +105,8 @@ function statusChangeCallback(response) {
     console.log(response);
 
     if (response.status === 'connected') {
-      testAPI();
+      getFBInfo();
+      mod();
     } else if (response.status === 'not_authorized') {
       document.getElementById('status').innerHTML = 'Please log ' +
         'into this app.';
@@ -143,7 +144,7 @@ function statusChangeCallback(response) {
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 
- function testAPI() {
+ function getFBInfo() {
     console.log('Welcome!  Fetching your information.... ');
 
     FB.api('/me?fields=id,name,picture,education', function(response) {
@@ -154,9 +155,6 @@ function statusChangeCallback(response) {
       picture = response['picture']['data']['url'];
 
       document.getElementById("name-mod").value = username;
-
-      document.getElementById('status').innerHTML =
-        console.log(response);
     });
   }
 
