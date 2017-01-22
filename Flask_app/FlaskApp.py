@@ -18,18 +18,12 @@ Picture = " "
 @app.route("/", methods=["GET", "POST"])
 def welcome():
     if request.method == 'POST':
-        data = request.data
-        userData = json.loads(data)
-        for key, value in dict.items(userData["uid"]):
-            UserId = value
-        for key, value in dict.items(userData["School"]):
-            School = value
-        for key, value in dict.items(userData["Program"]):
-            Program = value
-        for key, value in dict.items(userData["Picture"]):
-            Picture = value
-        for key, value in dict.items(userData["Name"]):
-            Name = value
+        UserId = request.form['uid']
+        School = request.form['School']
+        Program = request.form['Program']
+        Picture = request.form['pic']
+        Name = request.form['username']
+
         login(UserId, School, Program, Picture, Name)
     else:
         return render_template('login.html')
