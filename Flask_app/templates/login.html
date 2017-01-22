@@ -176,11 +176,7 @@ function statusChangeCallback(response) {
    },
    dataType: 'json',
    success: function(data) {
-      var $title = $('<h1>').text(data.talks[0].talk_title);
-      var $description = $('<p>').text(data.talks[0].talk_description);
-      $('#info')
-         .append($title)
-         .append($description);
+      window.location = data;
    },
    type: 'POST'
 });
