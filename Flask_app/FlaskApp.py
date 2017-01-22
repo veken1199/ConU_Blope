@@ -31,7 +31,7 @@ def welcome():
          #   Picture = str(value)
         #for key, value in dict.items(userData["Name"]):
          #   Name = str(value)
-        return render_template('swipe.html')
+        return render_template('debug.html')
         #login(UserId, School, Program, Picture, Name)
     elif request.method == 'GET':
         return render_template('login.html')
