@@ -3,7 +3,7 @@ from flask import Flask,render_template,request,redirect,url_for
 import pypyodbc,json
 app = Flask(__name__)
 
-connection = pypyodbc.connect( "DRIVER={ODBC Driver 13 for SQL Server};SERVER=blopes.database.windows.net;uid=test;pwd=Concordia1;DATABASE=Blope")
+connection = pypyodbc.connect( "DRIVER={SQL Server};SERVER=tcp:blopes.database.windows.net,1433; uid=test;pwd=Concordia1;DATABASE=Blope")
 connectLogin = connection.cursor()
 UserId = " "
 Name = " "
