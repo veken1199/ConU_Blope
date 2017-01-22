@@ -185,6 +185,8 @@ function statusChangeCallback(response) {
 });
   }
 
+    FB.Event.subscribe('auth.statusChange',  statusChangeCallback);
+
     function mod() {
         $('#myModal').modal('show');
     }
