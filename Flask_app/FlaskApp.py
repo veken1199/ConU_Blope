@@ -19,7 +19,7 @@ Picture = " "
 def welcome():
     if request.method == 'POST':
         data = request.data
-        userData = json.loads(data)
+        userData = json.loads(data.decode("utf-8"))
         for key, value in dict.items(userData["uid"]):
             UserId = str(value)
         for key, value in dict.items(userData["School"]):
