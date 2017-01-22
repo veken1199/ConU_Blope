@@ -47,7 +47,7 @@ def login(UserId, School, Program, Picture, Name):
 
 @app.route("/swipe", methods=['GET', 'POST'])
 def update():
-    return "hello world"
+    return render_template('swipe.html')
 
 
 def checkForMatch():
