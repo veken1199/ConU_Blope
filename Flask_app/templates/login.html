@@ -156,13 +156,9 @@ function statusChangeCallback(response) {
 
     FB.api('/me?fields=id,name,picture,education', function(response) {
       console.log('Successful login for: ' + response.name);
-      //for (i=0; i<response.education.length ; i++){
-
-       // if (response.education[i].year.name )
-     //
         var id = response['id']
         var username = response['name'];
-        var picture = response['picture']['url'];
+        var picture = response['picture']['data']['url'];
 
       document.getElementById('status').innerHTML =
         console.log(response);
