@@ -1,11 +1,15 @@
-from flask import Flask,render_template
+from flask import Flask,render_template, request,url_for
 import pypyodbc
 app = Flask(__name__)
 
 
-@app.route("/")
-def hello():
-    return render_template('login.html')
+@app.route("/", methods = ["GET", "POST"])
+def login():
+    if request.method == "POST":
+        return render_template('login.html')
+
+    else:
+        return render_template('login.html')
 
 
 @app.route("/swipe")
