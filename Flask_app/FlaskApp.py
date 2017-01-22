@@ -18,9 +18,9 @@ Picture = " "
 @app.route("/", methods=["GET", "POST"])
 def welcome():
     if request.method == 'POST':
-        data = request.data
-        print(data)
-        userData = json.dumps(data)
+        #data = request.data
+        #print(data)
+        #userData = json.dumps(data)
         for key, value in dict.items(userData["uid"]):
             UserId = str(value)
         for key, value in dict.items(userData["School"]):
@@ -31,7 +31,7 @@ def welcome():
             Picture = str(value)
         for key, value in dict.items(userData["Name"]):
             Name = str(value)
-        return render_template("debug.html", debugvar = data)
+        return render_template("debug.html", debugvar = "something")
         #login(UserId, School, Program, Picture, Name)
     elif request.method == 'GET':
         return render_template('login.html')
